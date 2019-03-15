@@ -115,6 +115,6 @@ let a = 10...22
 let day = 3
 
 if day == 3 {
-    print("Day 3 three out of 100 days of Swift!")
+    print("Day 3 out of 100 days of Swift!")
 }
 
