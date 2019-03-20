@@ -43,7 +43,7 @@ class ImagesTableController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "IMAGENAME", for: indexPath)
-        cell.textLabel?.text  = images[indexPath.row]
+        cell.textLabel?.text  = "Image \(indexPath.row+1)"
         return cell
     }
 
