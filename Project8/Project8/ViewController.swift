@@ -119,7 +119,6 @@ class ViewController: UIViewController {
             for column in 0..<5 {
                 let letterButton = UIButton(type: .system)
                 letterButton.titleLabel?.font = UIFont.systemFont(ofSize: 36)
-                letterButton.setTitle("WWW", for: .normal)
                 let frame = CGRect(x: column*width, y: row*height, width: width, height: height)
                 letterButton.frame = frame
                 letterButton.addTarget(self, action: #selector(letterTapAction), for: .touchUpInside)
