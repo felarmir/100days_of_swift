@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A3EFBF8224D56D500E1CC12 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3EFBF7224D56D500E1CC12 /* CollectionViewController.swift */; };
+		2A3EFBFA224D57DD00E1CC12 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3EFBF9224D57DD00E1CC12 /* CollectionViewCell.swift */; };
 		2AE316862242141A006F54F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE316852242141A006F54F8 /* AppDelegate.swift */; };
 		2AE316882242141A006F54F8 /* ImagesTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE316872242141A006F54F8 /* ImagesTableController.swift */; };
 		2AE3168B2242141A006F54F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AE316892242141A006F54F8 /* Main.storyboard */; };
@@ -26,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2A3EFBF7224D56D500E1CC12 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		2A3EFBF9224D57DD00E1CC12 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		2AE316822242141A006F54F8 /* Project1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AE316852242141A006F54F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2AE316872242141A006F54F8 /* ImagesTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesTableController.swift; sourceTree = "<group>"; };
@@ -77,6 +81,8 @@
 			isa = PBXGroup;
 			children = (
 				2AE316852242141A006F54F8 /* AppDelegate.swift */,
+				2A3EFBF7224D56D500E1CC12 /* CollectionViewController.swift */,
+				2A3EFBF9224D57DD00E1CC12 /* CollectionViewCell.swift */,
 				2AE316872242141A006F54F8 /* ImagesTableController.swift */,
 				2AE316AC22421A9D006F54F8 /* ImageDetailController.swift */,
 				2AE316892242141A006F54F8 /* Main.storyboard */,
@@ -186,6 +192,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A3EFBFA224D57DD00E1CC12 /* CollectionViewCell.swift in Sources */,
+				2A3EFBF8224D56D500E1CC12 /* CollectionViewController.swift in Sources */,
 				2AE316882242141A006F54F8 /* ImagesTableController.swift in Sources */,
 				2AE316862242141A006F54F8 /* AppDelegate.swift in Sources */,
 				2AE316AD22421A9D006F54F8 /* ImageDetailController.swift in Sources */,
