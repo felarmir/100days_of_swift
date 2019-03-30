@@ -115,17 +115,26 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8I0-LP-fXE">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="     " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EVI-ef-MmH">
+                                <rect key="frame" x="176" y="626" width="23" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="8I0-LP-fXE" firstAttribute="top" secondItem="Qpy-mh-xQJ" secondAttribute="top" id="2vU-Cc-xGw"/>
+                            <constraint firstItem="EVI-ef-MmH" firstAttribute="centerX" secondItem="Qpy-mh-xQJ" secondAttribute="centerX" id="FwV-ea-Dbx"/>
                             <constraint firstItem="8I0-LP-fXE" firstAttribute="trailing" secondItem="Qpy-mh-xQJ" secondAttribute="trailing" id="MSX-DG-lIu"/>
                             <constraint firstItem="8I0-LP-fXE" firstAttribute="leading" secondItem="Qpy-mh-xQJ" secondAttribute="leading" id="PC6-mG-8Dx"/>
+                            <constraint firstItem="JhN-oP-8be" firstAttribute="bottom" secondItem="EVI-ef-MmH" secondAttribute="bottom" constant="20" id="tM7-BW-QvN"/>
                             <constraint firstItem="8I0-LP-fXE" firstAttribute="bottom" secondItem="Qpy-mh-xQJ" secondAttribute="bottom" id="tja-c0-9Uw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="JhN-oP-8be"/>
                     </view>
                     <connections>
+                        <outlet property="counterLabel" destination="EVI-ef-MmH" id="NqQ-7a-9Ko"/>
                         <outlet property="imageView" destination="8I0-LP-fXE" id="Qs4-OT-3Ol"/>
                     </connections>
                 </viewController>

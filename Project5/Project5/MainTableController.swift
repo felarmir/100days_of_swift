@@ -27,14 +27,27 @@ class MainTableController: UITableViewController {
         } else {
             allWards = ["silkworm"]
         }
+    
+        title = UserDefaults.standard.object(forKey: "currentWord") as? String ?? ""
         
-        startGame()
+        if let data = UserDefaults.standard.object(forKey: "words") as? Data {
+            if let words = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? [String] ?? [String]() {
+                usedWords = words
+                if usedWords.count > 0 {
+                    self.tableView .reloadData()
+                }
+            }
+        } else {
+            startGame()
+        }
     }
     
     @objc func startGame() {
         title = allWards.randomElement()
         usedWords.removeAll()
         tableView.reloadData()
+        
+        UserDefaults.standard.set(title, forKey: "currentWord")
     }
     
     @objc func wordForAnswer() {
@@ -59,7 +72,7 @@ class MainTableController: UITableViewController {
                 if isOriginal(lowerString) {
                     if isReal(lowerString) {
                         usedWords.insert(answer, at: 0)
-                        
+                        save()
                         let indexPath = IndexPath(row: 0, section: 0)
                         tableView.insertRows(at: [indexPath], with: .automatic)
                         
@@ -115,6 +128,12 @@ class MainTableController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WORD", for: indexPath)
         cell.textLabel?.text = usedWords[indexPath.row]
         return cell
+    }
+    
+    func save() {
+        if let data = try? NSKeyedArchiver.archivedData(withRootObject: usedWords, requiringSecureCoding: false) {
+            UserDefaults.standard.set(data, forKey: "words")
+        }
     }
 
 }

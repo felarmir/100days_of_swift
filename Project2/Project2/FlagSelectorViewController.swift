@@ -22,6 +22,8 @@ class FlagSelectorViewController: UIViewController {
     var score = 0
     var correctAnswer = 0
     
+    var highScore: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         countries += ["estonia", "france", "germany", "ireland", "italy",
@@ -36,6 +38,8 @@ class FlagSelectorViewController: UIViewController {
         self.thirdFlag.layer.borderColor = UIColor.lightGray.cgColor
 
         askQuestion()
+        
+        highScore = UserDefaults.standard.integer(forKey: "score")
     }
     
     func askQuestion(action: UIAlertAction? = nil) {
@@ -50,6 +54,12 @@ class FlagSelectorViewController: UIViewController {
     @IBAction func buttonsTapAction(_ sender: UIButton) {
         if sender.tag == correctAnswer {
             score += 1
+            UserDefaults.standard.set(score, forKey: "score")
+            if score > highScore && highScore != 0 {
+                let ac = UIAlertController(title: "You beat your high score", message: nil, preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                present(ac, animated: true, completion: nil)
+            }
         } else {
             score -= 1
             let alert = UIAlertController(title: "Wrong", message:nil, preferredStyle: .alert)

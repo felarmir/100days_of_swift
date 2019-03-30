@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="s22-bo-R46">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Collection View Controller-->
+        <scene sceneID="1cq-lc-p31">
+            <objects>
+                <collectionViewController id="DIc-er-1VV" customClass="CollectionViewController" customModule="Project10" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="CyI-sI-sU6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="0GS-vU-e3t">
+                            <size key="itemSize" width="190" height="220"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Person" id="XSP-Up-g7c" customClass="PersonCell" customModule="Project10" customModuleProvider="target">
+                                <rect key="frame" x="10" y="10" width="190" height="220"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="190" height="220"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7Wn-xe-6DG">
+                                            <rect key="frame" x="13" y="57" width="164" height="128"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ijf-Lq-nJc">
+                                            <rect key="frame" x="5" y="190" width="180" height="25"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="25" id="CaQ-au-zHy"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="14"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </view>
+                                <color key="backgroundColor" red="0.17662194370000001" green="0.172062993" blue="0.19608151909999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstItem="ijf-Lq-nJc" firstAttribute="top" secondItem="7Wn-xe-6DG" secondAttribute="bottom" constant="5" id="D4C-hM-Gyv"/>
+                                    <constraint firstItem="ijf-Lq-nJc" firstAttribute="leading" secondItem="XSP-Up-g7c" secondAttribute="leading" constant="5" id="LZT-UD-AMC"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="7Wn-xe-6DG" secondAttribute="trailing" constant="5" id="RmX-Lc-mgs"/>
+                                    <constraint firstItem="7Wn-xe-6DG" firstAttribute="top" secondItem="XSP-Up-g7c" secondAttribute="topMargin" constant="5" id="a74-Xj-qEW"/>
+                                    <constraint firstAttribute="trailing" secondItem="ijf-Lq-nJc" secondAttribute="trailing" constant="5" id="qyo-hS-eBD"/>
+                                    <constraint firstItem="7Wn-xe-6DG" firstAttribute="leading" secondItem="XSP-Up-g7c" secondAttribute="leadingMargin" constant="5" id="rlE-dz-vay"/>
+                                    <constraint firstAttribute="bottom" secondItem="ijf-Lq-nJc" secondAttribute="bottom" constant="5" id="zg1-tC-O7j"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="imageView" destination="7Wn-xe-6DG" id="phm-vD-gUI"/>
+                                    <outlet property="nameLabel" destination="ijf-Lq-nJc" id="TF8-fO-bzF"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="DIc-er-1VV" id="MES-9X-d5F"/>
+                            <outlet property="delegate" destination="DIc-er-1VV" id="J8a-QL-r2q"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="A4g-Ms-ehO"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yeh-Xf-XeK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1066.6666666666667" y="-34.151785714285715"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="yKR-mg-EkR">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="s22-bo-R46" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="blackTranslucent" id="ll4-TF-T8Z">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="DIc-er-1VV" kind="relationship" relationship="rootViewController" id="Pnr-fO-IPY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s5D-fC-K1v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="157.97101449275362" y="-34.151785714285715"/>
+        </scene>
+    </scenes>
+</document>
