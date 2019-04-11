@@ -160,7 +160,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if object.name == "good" {
             ballsLimit += 1
             score += 1
-            destroy(ball: ball)q
+            destroy(ball: ball)
         } else if object.name == "bad" {
             score -= 1
             destroy(ball: ball)
