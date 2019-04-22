@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Project22" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YiV-ld-dFE">
+                                <rect key="frame" x="157" y="44" width="100" height="100"/>
+                                <color key="backgroundColor" red="0.20000000000000001" green="0.71764705880000002" blue="0.66274509800000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="YiV-ld-dFE" secondAttribute="height" multiplier="1:1" id="QaJ-4o-Ryg"/>
+                                    <constraint firstAttribute="width" constant="100" id="qdA-T2-nBL"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UNKNOWN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GKu-GD-TzM">
+                                <rect key="frame" x="125" y="427.5" width="164" height="41"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="GKu-GD-TzM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IEv-ge-kI3"/>
+                            <constraint firstItem="YiV-ld-dFE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="P2t-gE-i58"/>
+                            <constraint firstItem="YiV-ld-dFE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="VZq-Yb-50F"/>
+                            <constraint firstItem="GKu-GD-TzM" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="uhs-At-EWo"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="circlDiametr" destination="qdA-T2-nBL" id="0Mm-vm-wmB"/>
+                        <outlet property="circlrView" destination="YiV-ld-dFE" id="Idt-DP-eJI"/>
+                        <outlet property="position" destination="VZq-Yb-50F" id="Lpi-qA-Jcz"/>
+                        <outlet property="textLabel" destination="GKu-GD-TzM" id="XsN-4q-GwC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="47.826086956521742" y="20.758928571428569"/>
+        </scene>
+    </scenes>
+</document>
