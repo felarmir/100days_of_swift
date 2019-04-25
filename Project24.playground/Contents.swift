@@ -129,3 +129,10 @@ extension String {
 
 let ln = "Denis \n iOS \n Developer".lines
 print(ln)
+
+func sayHello(to name: String) -> String {
+    return "Howdy, \(name)!"
+}
+
+
+

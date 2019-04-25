@@ -8,6 +8,15 @@
 
 import UIKit
 
+struct Note: Codable {
+    
+    var id: String
+    var title: String
+    var text: String
+    var date: Date
+    
+}
+
 class TaskTableViewController: UITableViewController {
 
     var tasks = [TaskModel]()
@@ -39,6 +48,7 @@ class TaskTableViewController: UITableViewController {
         alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler:nil))
         present(alert, animated: true, completion: nil)
     }
+
 
     // MARK: - Table view data source
 
@@ -87,7 +97,6 @@ class TaskTableViewController: UITableViewController {
             save()
         }
     }
-
     
     func save() {
         let jsonEncoder = JSONEncoder()
