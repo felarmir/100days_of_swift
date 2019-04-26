@@ -17,6 +17,8 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
     var mcSession: MCSession?
     var mcAdvertiserAssistant: MCAdvertiserAssistant?
     
+    var isHost = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,6 +28,21 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         
         mcSession = MCSession(peer: peerID, securityIdentity: nil, encryptionPreference: .required)
         mcSession?.delegate = self
+        
+        let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let showPeers = UIBarButtonItem(title: "Peers", style: .plain, target: self, action: #selector(showClients))
+        let sendMessage = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(sendMessageAction))
+        
+        toolbarItems = [sendMessage, spacer, showPeers]
+        navigationController?.toolbar.barStyle = .black
+        navigationController?.isToolbarHidden = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if isHost {
+            navigationController?.isToolbarHidden = false
+        }
     }
     
     @objc func showConnectionPromt() {
@@ -37,12 +54,15 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
     }
     
     func startHosting(action: UIAlertAction) {
+        navigationController?.isToolbarHidden = false
+        isHost = true
         guard let mcSession = mcSession  else { return }
         mcAdvertiserAssistant = MCAdvertiserAssistant(serviceType: "hw-project25", discoveryInfo: nil, session: mcSession)
         mcAdvertiserAssistant?.start()
     }
     
     func joinSession(action: UIAlertAction) {
+        navigationController?.isToolbarHidden = true
         guard let mcSession = mcSession else { return }
         let mcBrowser = MCBrowserViewController(serviceType: "hw-project25", session: mcSession)
         mcBrowser.delegate = self
@@ -89,6 +109,33 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         }
     }
     
+    @objc func showClients() {
+        guard let peersVC = storyboard?.instantiateViewController(withIdentifier: "ClientsTVC") as? ClientsTVC else {return}
+        peersVC.peers = mcSession!.connectedPeers
+        navigationController?.pushViewController(peersVC, animated: true)
+    }
+    
+    @objc func sendMessageAction() {
+        let ac = UIAlertController(title: "Message", message: nil, preferredStyle: .alert)
+        ac.addTextField()
+        ac.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+        ac.addAction(UIAlertAction(title: "Send", style: .default, handler: { [weak self, weak ac] _ in
+            guard let message = ac?.textFields?[0].text else {return}
+            if (self?.mcSession?.connectedPeers.count)! > 0 {
+                    let messageData: Data = Data(message.utf8)
+                    do {
+                        try self?.mcSession!.send(messageData, toPeers: (self?.mcSession!.connectedPeers)!, with: .reliable)
+                    } catch {
+                        let ac = UIAlertController(title: "Send error", message: error.localizedDescription, preferredStyle: .alert)
+                        ac.addAction(UIAlertAction(title: "OK", style: .default))
+                        self?.present(ac, animated: true)
+                    }
+                
+            }
+        }))
+        present(ac, animated: true, completion: nil)
+    }
+    
     // MCSession
     
     func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
@@ -99,6 +146,11 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
             print("Connecting: \(peerID.displayName)")
         case .notConnected:
             print("Not Connected: \(peerID.displayName)")
+            DispatchQueue.main.async {
+                let ac = UIAlertController(title: "\(peerID.displayName) disconnected", message: nil, preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                self.present(ac, animated: true)
+            }
         @unknown default:
             print("Unknown state recived: \(peerID.displayName)")
         }
@@ -109,6 +161,11 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
             if let image = UIImage(data: data) {
                 self?.images.insert(image, at: 0)
                 self?.collectionView.reloadData()
+            } else {
+                let message = String(decoding: data, as: UTF8.self)
+                let ac = UIAlertController(title: "New Message", message: message, preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                self?.present(ac, animated: true)
             }
         }
     }
