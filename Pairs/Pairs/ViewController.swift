@@ -79,8 +79,14 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 
 extension ViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = ((UIScreen.main.bounds.width - 100) / 4.0) - 15
-        let height = ((UIScreen.main.bounds.height - 100) / 4.0) - 15
+        if UI_USER_INTERFACE_IDIOM() == .pad {
+            let width = ((UIScreen.main.bounds.width - 100) / 4.0) - 15
+            let height = ((UIScreen.main.bounds.height - 40) / 4.0) - 15
+            return CGSize(width: width, height: height)
+        }
+        
+        let width = ((UIScreen.main.bounds.width - 16) / 4.0) - 15
+        let height = ((UIScreen.main.bounds.height - 40) / 4.0) - 15
         return CGSize(width: width, height: height)
     }
 }
